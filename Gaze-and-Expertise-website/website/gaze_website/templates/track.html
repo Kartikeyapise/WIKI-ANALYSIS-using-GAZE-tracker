@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Tracker{% endblock %}
+
+{% block content %}
+
+<div class="central-text">
+    <img id="tracker" src="tracker_feed/?cam={{cam}}" alt="Live web tracker">
+</div>
+<form action="" method="get">
+    <button name="cam" value="{{cam}}">Stop Recording</button>
+</form>
+
+
+{% endblock %}

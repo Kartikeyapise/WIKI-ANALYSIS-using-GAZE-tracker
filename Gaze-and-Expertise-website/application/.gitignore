@@ -1,0 +1,12 @@
+outputs/*.txt_
+outputs/*.txt
+opengazer.app/*
+opengazer
+moc_*.cpp
+*.o
+*.gch
+
+Makefile
+Image_out/
+samples/
+File_out/

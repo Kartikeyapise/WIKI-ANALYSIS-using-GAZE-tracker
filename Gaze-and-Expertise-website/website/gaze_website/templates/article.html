@@ -1,0 +1,10 @@
+<a id='{{index}}' >{{result.title}}</a>
+<p>{{result.description}}</p>
+
+
+<script type="text/javascript">
+    document.getElementById("{{index}}").onclick = function () {
+        window.open('{{result.link}}')
+        window.location='/track'
+    };
+</script>

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<div class="central-textlogo" style="font-size: 1em;">
+    <h1 class="central-textlogo-wrapper">
+        <span class="central-textlogo sprite svg-Wikipedia_wordmark">
+            Wikipedia
+        </span>
+        <strong class="localized-slogan">The Free Encyclopedia</strong>
+    </h1>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png"
+        width="200" height="183" alt="Wikipedia">
+</div>
+<!-- Search form -->
+<div class="search-container">
+    <form class="pure-form" id="search-form" data-el-section="search">
+        <fieldset>
+            <div class="search-input" id="search-input">
+                <label for="searchInput" class="screen-reader-text" data-jsl10n="search-input-label">Search
+                    Wikipedia</label>
+                <input id="searchInput" name="search" type="search" size="20" autofocus="autofocus" accesskey="F"
+                    dir="auto" autocomplete="off" style="padding-right: 64px;" placeholder="Search...">
+                <div id="typeahead-suggestions"></div>
+            </div>
+            <button class="pure-button pure-button-primary-progressive" type="submit">
+                <i class="sprite svg-search-icon" data-jsl10n="search-input-button">Search</i>
+            </button>
+        </fieldset>
+    </form>
+</div>
+<div class="lang-list-container"></div>
+<div class="central-text">
+    {% if results %}
+    {% for result in results %}
+    {% include './article.html' with result=result index=forloop.counter0 %}
+    {% endfor %}
+
+    {% else %}
+
+    <h2>No Results</h2>
+
+    {% endif %}
+</div>
+<hr>
+
+<script type="text/javascript">
+    document.getElementById("searchInput").value = "{{query}}"
+</script>
+{% endblock %}
